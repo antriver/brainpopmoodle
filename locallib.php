@@ -47,7 +47,7 @@ function brainpop_appears_valid_url($url)
 }
 
 function brainpop_get_domain($url)
-{
+{ 
 	$url = parse_url($url);
 	return $url['host'];
 }

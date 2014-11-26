@@ -1,4 +1,6 @@
-brainpopmoodle
+mod_brainpop
 ==============
 
-Forked from the URL module, this module (plug-in) allows teachers to put links to BrainPOP videos in their courses. Requires a BrainPOP account to be useful.
+A Moodle resource which links to videos on https://www.brainpop.com and automatically logs the user in so they can view it.
+
+Requires a BrainPOP account to be useful.

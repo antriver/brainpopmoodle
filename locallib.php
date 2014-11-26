@@ -43,11 +43,11 @@ require_once("$CFG->dirroot/mod/brainpop/lib.php");
 */
 function brainpop_appears_valid_url($url)
 {
-	return (bool)preg_match('%^http(s)?\:\/\/(www\.)?brainpop(esl|jr)?\.(com|fr|co\.uk)%' , $url );
+    return (bool)preg_match('%^http(s)?\:\/\/(www\.|esp\.|esl\.)?brainpop(esl|jr)?\.(com|fr|co\.uk)%' , $url );
 }
 
 function brainpop_get_domain($url)
-{ 
+{
 	$url = parse_url($url);
 	return $url['host'];
 }
@@ -75,7 +75,7 @@ function brainpop_fix_submitted_url($url)
         // please note relative urls are not allowed, /xx/yy links are ok
         $url = 'http://'.$url;
     }
-    
+
     return $url;
 }
 
@@ -85,14 +85,16 @@ function brainpop_fix_submitted_url($url)
 function brainpop_get_login_url( $item )
 {
 	$config = get_config('brainpop');
-	
-	$u = $config->brainpopusername;
-	$p = $config->brainpoppassword;
-	
+
 	$domain = brainpop_get_domain($item->externalurl);
-	
-	$url = 'http://'.$domain.'/user/loginDo.weml?user='.$u.'&password='.$p.'&targetPage=';
-		$url .= urlencode($item->externalurl);
+
+    $params = array(
+        'username' => $config->brainpopusername,
+        'password' => $config->brainpoppassword,
+        'refer' => $item->externalurl
+    );
+
+	$url = 'https://' . $domain . '/user/loginDo.weml?' . http_build_query($params);
 
 	return $url;
 }
@@ -150,11 +152,11 @@ function brainpop_get_full_url($item, $cm, $course, $config=null) {
         }
 
         if (!empty($parameters))
-        {    
+        {
 	        $join = (strpos($fullurl, '?') === false) ? '?' : '&';
 	        $fullurl = $fullurl.$join.implode('&', $parameters);
         }
-        
+
     }
 
     // encode all & to &amp; entity
@@ -238,7 +240,7 @@ function brainpop_print_intro($item, $cm, $course, $ignoresettings=false) {
 function brainpop_display_frame($item, $cm, $course)
 {
     global $PAGE, $OUTPUT, $CFG;
-    
+
 	brainpop_print_header($item, $cm, $course);
 	brainpop_print_heading($item, $cm, $course, true);
 	brainpop_print_intro($item, $cm, $course, true);
@@ -255,10 +257,10 @@ function brainpop_display_frame($item, $cm, $course)
 	echo '</div>';
 
     echo $OUTPUT->footer();
-    die;    
-    
-} 
- 
+    die;
+
+}
+
 /*function brainpop_display_frame($item, $cm, $course)
 {
     global $PAGE, $OUTPUT, $CFG;

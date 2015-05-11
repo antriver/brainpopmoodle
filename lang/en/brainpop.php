@@ -34,6 +34,7 @@ $string['configpassworddesc'] = 'Enter the password for your BrainPOP account.';
 
 $string['configdisplayoptions'] = 'Select all options that should be available, existing settings are not modified. Hold CTRL key to select multiple fields.';
 $string['configframesize'] = 'When the video is displayed in a frame, this value is the height (in pixels) of the top frame (which contains the navigation).'; //but this isn't used
+$string['configrequiremodintro'] = 'Disable this option if you do not want to force users to enter description of each activity.';
 $string['configrolesinparams'] = 'Enable if you want to include localized role names in list of available parameter variables.';
 $string['contentheader'] = 'Content';
 

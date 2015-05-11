@@ -46,7 +46,7 @@ if ($ADMIN->fulltree) {
      #   get_string('framesize', 'brainpop'), get_string('configframesize', 'brainpop'), 130, PARAM_INT));
 
     $settings->add(new admin_setting_configcheckbox('brainpop/requiremodintro',
-        get_string('requiremodintro', 'admin'), get_string('configrequiremodintro', 'admin'), 1));
+        get_string('requiremodintro', 'admin'), get_string('configrequiremodintro', 'mod_brainpop'), 1));
 
 //brainpop login
     $settings->add(new admin_setting_configtext('brainpop/brainpopusername', get_string('configusername','brainpop'),
@@ -67,7 +67,7 @@ if ($ADMIN->fulltree) {
 
 #    $settings->add(new admin_setting_configcheckbox('brainpop/printheading',
 #        get_string('printheading', 'brainpop'), get_string('printheadingexplain', 'brainpop'), 0));
-  
+
 #    $settings->add(new admin_setting_configcheckbox('brainpop/printintro',
 #        get_string('printintro', 'brainpop'), get_string('printintroexplain', 'brainpop'), 1));
 
@@ -76,7 +76,7 @@ if ($ADMIN->fulltree) {
 
     $settings->add(new admin_setting_configtext('brainpop/popupwidth',
         get_string('popupwidth', 'brainpop'), get_string('popupwidthexplain', 'brainpop'), 700, PARAM_INT, 7));
-        
+
     $settings->add(new admin_setting_configtext('brainpop/popupheight',
         get_string('popupheight', 'brainpop'), get_string('popupheightexplain', 'brainpop'), 600, PARAM_INT, 7));
 
